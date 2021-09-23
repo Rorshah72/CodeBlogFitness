@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;ks;
+using System.Collections.Generic;
 
 namespace CodeBlogFitness.BL.Model
 {
+    [Serializable]
 
     /// <summary>
     /// Стать.
@@ -16,12 +17,12 @@ namespace CodeBlogFitness.BL.Model
         /// <summary>
         /// Створити нову стать.
         /// </summary>
-        /// <param name="name">Назва статі.</param>
+        /// <param name="name">Назва статi.</param>
         public Gender(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentNullException("Імя статі не може бути пустим або нуль", nameof(name));
+                throw new ArgumentNullException("iмя статi не може бути пустим або нуль", nameof(name));
             }
 
             Name = name;
@@ -29,7 +30,7 @@ namespace CodeBlogFitness.BL.Model
         /// <summary>
         /// Перевизначення методу ToString.
         /// </summary>
-        /// <returns>Назву статі</returns>
+        /// <returns>Назву статi</returns>
         public override string ToString()
         {
             return Name;

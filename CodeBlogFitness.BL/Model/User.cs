@@ -2,14 +2,16 @@
 
 namespace CodeBlogFitness.BL.Model
 {
+    [Serializable]
+
     /// <summary>
     /// Користувач.
     /// </summary>
     public class User
     {
-        #region Властивості.
+        #region Властивостi.
         /// <summary>
-        /// Імя.
+        /// iмя.
         /// </summary>
         public string Name { get; }
 
@@ -26,32 +28,32 @@ namespace CodeBlogFitness.BL.Model
         /// <summary>
         /// Вага.
         /// </summary>
-        public double Weigth { get; set; }
+        public double Weight { get; set; }
 
         /// <summary>
-        /// Ріст.
+        /// Рiст.
         /// </summary>
-        public double Heigth { get; set; }
+        public double Height { get; set; }
         #endregion
 
         /// <summary>
         /// Створити нового користувача.
         /// </summary>
-        /// <param name="name"> Імя. </param>
+        /// <param name="name"> iмя. </param>
         /// <param name="gender"> Стать .</param>
         /// <param name="birthDate"> Дата народження. </param>
-        /// <param name="weigth"> Вага. </param>
-        /// <param name="heigth"> Ріст. </param>
+        /// <param name="weight"> Вага. </param>
+        /// <param name="height"> Рiст. </param>
         public User( string name, 
                      Gender gender, 
                      DateTime birthDate, 
-                     double weigth, 
-                     double heigth)
+                     double weight, 
+                     double height)
         {
-            #region Провірка умов
+            #region Провiрка умов
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentNullException("Імя  користувача не може бути пустим або нулем. ", nameof(name));
+                throw new ArgumentNullException("iмя  користувача не може бути пустим або нулем. ", nameof(name));
             }
 
             if(gender == null)
@@ -64,14 +66,14 @@ namespace CodeBlogFitness.BL.Model
                 throw new ArgumentException("Неможлива дата народження. ", nameof(birthDate));
             }
 
-            if(weigth <= 0)
+            if(weight <= 0)
             {
-                throw new ArgumentException(" Вес не може бути меньшим або рівним нулю.", nameof(weigth) );
+                throw new ArgumentException(" Вес не може бути меньшим або рiвним нулю.", nameof(weight) );
             }
 
-            if(heigth <= 0 )
+            if(height <= 0 )
             {
-                throw new ArgumentException(" Ріст не може бути меньшим або рівним нулю.", nameof(heigth));
+                throw new ArgumentException(" Рiст не може бути меньшим або рiвним нулю.", nameof(height));
             }
             #endregion
 
@@ -79,14 +81,14 @@ namespace CodeBlogFitness.BL.Model
             Name = name;
             Gender = gender;
             BirthDate = birthDate;
-            Weigth = weigth;
-            Heigth = heigth;
+            Weight = weight;
+            Height = height;
         }
 
         /// <summary>
         /// Перевизначення методу ToString.
         /// </summary>
-        /// <returns>Імя користувача.</returns>
+        /// <returns>iмя користувача.</returns>
         public override string ToString()
         {
             return Name;
