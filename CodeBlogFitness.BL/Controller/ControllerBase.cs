@@ -12,10 +12,10 @@ namespace CodeBlogFitness.BL.Controller
     {
 
         /// <summary>
-        /// Зберігання даних у файл.
+        /// Зберiгання даних у файл.
         /// </summary>
         /// <param name="fileName">Назва файлу.</param>
-        /// <param name="item">Обєкт який потрібно зберегти.</param>
+        /// <param name="item">Обєкт який потрiбно зберегти.</param>
         protected void Save(string fileName, object item)
         {
             var formatter = new BinaryFormatter();
@@ -30,8 +30,8 @@ namespace CodeBlogFitness.BL.Controller
         /// Зчитування даних.
         /// </summary>
         /// <typeparam name="T">Ти даних який зчитуємо.</typeparam>
-        /// <param name="fileName">Назва файлу з відки зчитуємо.</param>
-        /// <returns>Обєкти записані в файл.</returns>
+        /// <param name="fileName">Назва файлу з вiдки зчитуємо.</param>
+        /// <returns>Обєкти записанi в файл.</returns>
         protected T Load<T>(string fileName)
         {
             var formatter = new BinaryFormatter();

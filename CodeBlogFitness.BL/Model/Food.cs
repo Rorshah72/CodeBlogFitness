@@ -40,14 +40,14 @@ namespace CodeBlogFitness.BL.Model
         /// <summary>
         /// Добавлення продукту до каталогу.
         /// </summary>
-        /// <param name="name">Імя продукту.</param>
-        /// <param name="proteins">Білки.</param>
+        /// <param name="name">iмя продукту.</param>
+        /// <param name="proteins">Бiлки.</param>
         /// <param name="fats">Жири.</param>
         /// <param name="carbohydrates">Вуглеводи.</param>
-        /// <param name="callories">Калорії.</param>
+        /// <param name="callories">Калорiї.</param>
         public Food(string name, double proteins, double fats, double carbohydrates, double callories)
         {
-            //TODO : провірка
+            //TODO : провiрка
             Name = name;
             Proteins = proteins / 100.0;
             Fats = fats /100.0;
@@ -56,7 +56,7 @@ namespace CodeBlogFitness.BL.Model
         }
 
         /// <summary>
-        /// Перевизначення ToString для їжі.
+        /// Перевизначення ToString для їжi.
         /// </summary>
         /// <returns>Назву продукту.</returns>
         public override string ToString()

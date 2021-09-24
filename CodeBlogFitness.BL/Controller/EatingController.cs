@@ -7,7 +7,7 @@ using System.Linq;
 namespace CodeBlogFitness.BL.Controller
 {
     /// <summary>
-    /// Контролер прийому їжі.
+    /// Контролер прийому їжi.
     /// </summary>
     public class EatingController : ControllerBase
     {
@@ -20,17 +20,17 @@ namespace CodeBlogFitness.BL.Controller
         private readonly User user;
 
         /// <summary>
-        /// Католог продуктів.
+        /// Католог продуктiв.
         /// </summary>
         public List<Food> Foods { get; }
 
         /// <summary>
-        /// Журнал прийому їжі.
+        /// Журнал прийому їжi.
         /// </summary>
         public Eating Eating { get; }
 
         /// <summary>
-        /// Авторизація користувача.
+        /// Авторизацiя користувача.
         /// </summary>
         /// <param name="user">Користувач додатку.</param>
         public EatingController(User user)
@@ -41,7 +41,7 @@ namespace CodeBlogFitness.BL.Controller
         }
 
         /// <summary>
-        /// Добавлє продукт до журналу прйому їжі.
+        /// Добавлє продукт до журналу прйому їжi.
         /// </summary>
         /// <param name="foodName">Назва продукту.</param>
         /// <param name="weight">Вага продукту.</param>
@@ -65,18 +65,18 @@ namespace CodeBlogFitness.BL.Controller
         }
                
         /// <summary>
-        /// Получення журналу прийому їжі.
+        /// Получення журналу прийому їжi.
         /// </summary>
-        /// <returns>журнал прийому їжі.</returns>
+        /// <returns>журнал прийому їжi.</returns>
         private Eating GetEating()
         {
             return Load<Eating>(EATINGS_FILE_NAME) ?? new Eating(user);
         }
 
         /// <summary>
-        /// Получення каталогу продуктів.
+        /// Получення каталогу продуктiв.
         /// </summary>
-        /// <returns>Каталог продуктів</returns>
+        /// <returns>Каталог продуктiв</returns>
         private List<Food> GetAllFoods()
         {
             return Load<List<Food>>(FOODS_FILE_NAME) ?? new List<Food>();
@@ -84,7 +84,7 @@ namespace CodeBlogFitness.BL.Controller
         }
 
         /// <summary>
-        /// Збереження каталогу  та журналу прийому продуктів.
+        /// Збереження каталогу  та журналу прийому продуктiв.
         /// </summary>
         private void Save()
         {

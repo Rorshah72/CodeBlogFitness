@@ -12,12 +12,12 @@ namespace CodeBlogFitness.BL.Model
     public class Eating
     {
         /// <summary>
-        /// Час вживання їжі.
+        /// Час вживання їжi.
         /// </summary>
         public DateTime Moment { get; }
 
         /// <summary>
-        /// Список продуктів.
+        /// Список продуктiв.
         /// </summary>
         public Dictionary<Food, double > Foods { get; }
 
@@ -38,7 +38,7 @@ namespace CodeBlogFitness.BL.Model
         }
 
         /// <summary>
-        /// Добавлення продукту до раціону.
+        /// Добавлення продукту до рацiону.
         /// </summary>
         /// <param name="food">Продукт.</param>
         /// <param name="weight">Вага продукту.</param>
