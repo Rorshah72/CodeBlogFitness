@@ -65,7 +65,7 @@ namespace CodeBlogFitness.BL.Controller
             using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate))
             {
 
-                if (formatter.Deserialize(fs) is List<User> users)
+                if (fs.Length > 0 && formatter.Deserialize(fs) is List<User> users)
                 {
                     return users;
                 }
@@ -78,6 +78,14 @@ namespace CodeBlogFitness.BL.Controller
 
         }
 
+
+        /// <summary>
+        /// Доповнення даних нового користувача.
+        /// </summary>
+        /// <param name="genderName">Iмя.</param>
+        /// <param name="birthDate">Дата народження.</param>
+        /// <param name="weight">Вага.</param>
+        /// <param name="height">Рiст.</param>
         public void SetNewUserData(string genderName, DateTime birthDate, double weight = 1, double height = 1)
         {
             //TODO: Proverka

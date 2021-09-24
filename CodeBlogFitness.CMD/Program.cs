@@ -19,7 +19,7 @@ namespace CodeBlogFitness.CMD
                 Console.WriteLine("Введiть стать користуваача: ");
                 var gender = Console.ReadLine();
                 var birthDate = ParseDateTime();
-                var weight = ParseDouble("вага");
+                var weight = ParseDouble("вагу");
                 var height = ParseDouble("рiст");
                 
 
