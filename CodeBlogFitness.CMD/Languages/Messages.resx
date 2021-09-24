@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnterGender" xml:space="preserve">
-    <value>Введіть вашу стать</value>
+    <value>Введiть вашу стать</value>
   </data>
   <data name="EnterName" xml:space="preserve">
     <value>Введiть iмя користуваача</value>
   </data>
   <data name="Height" xml:space="preserve">
-    <value>Ріст</value>
+    <value>Рiст</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Вас вiтає додаток для фiтнесу</value>

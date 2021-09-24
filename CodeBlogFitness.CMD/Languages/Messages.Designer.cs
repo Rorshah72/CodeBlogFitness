@@ -61,7 +61,7 @@ namespace CodeBlogFitness.CMD.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Введіть вашу стать.
+        ///   Ищет локализованную строку, похожую на Введiть вашу стать.
         /// </summary>
         public static string EnterGender {
             get {
@@ -79,7 +79,7 @@ namespace CodeBlogFitness.CMD.Languages {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Ріст.
+        ///   Ищет локализованную строку, похожую на Рiст.
         /// </summary>
         public static string Height {
             get {
