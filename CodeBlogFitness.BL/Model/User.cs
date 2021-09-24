@@ -106,7 +106,7 @@ namespace CodeBlogFitness.BL.Model
         /// <returns>iмя користувача.</returns>
         public override string ToString()
         {
-            return Name + " " + Age;
+            return "Iмя:" + Name + " Вik: " + Age + " Стать: " + Gender + " Рiст: " + Height + " Вага: " + Weight;
         }
 
     }
