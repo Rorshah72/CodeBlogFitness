@@ -18,12 +18,12 @@ namespace CodeBlogFitness.BL.Model
         /// <summary>
         /// Стать.
         /// </summary>
-        public Gender Gender { get; }
+        public Gender Gender { get; set; }
 
         /// <summary>
         /// Дата народження.
         /// </summary>
-        public DateTime BirthDate { get; }
+        public DateTime BirthDate { get; set; }
 
         /// <summary>
         /// Вага.
@@ -34,6 +34,11 @@ namespace CodeBlogFitness.BL.Model
         /// Рiст.
         /// </summary>
         public double Height { get; set; }
+
+        /// <summary>
+        /// Вiк.
+        /// </summary>
+        public int Age { get { return DateTime.Now.Year - BirthDate.Year; } }
         #endregion
 
         /// <summary>
@@ -85,13 +90,23 @@ namespace CodeBlogFitness.BL.Model
             Height = height;
         }
 
+        public User(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException("iмя  користувача не може бути пустим або нулем. ", nameof(name));
+            }
+
+            Name = name;
+        }
+
         /// <summary>
         /// Перевизначення методу ToString.
         /// </summary>
         /// <returns>iмя користувача.</returns>
         public override string ToString()
         {
-            return Name;
+            return Name + " " + Age;
         }
 
     }
