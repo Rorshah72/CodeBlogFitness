@@ -6,29 +6,38 @@ namespace CodeBlogFitness.BL.Model
     public class Exercise
     {
         #region Властивостi
+        public int Id { get; set; }
+
         /// <summary>
         /// Дата початку розминки.
         /// </summary>
-        public DateTime Start { get; }
+        public DateTime Start { get; set; }
 
         /// <summary>
         /// Дата кiнця розминки.
         /// </summary>
-        public DateTime Finish { get;  }
+        public DateTime Finish { get; set; }
+
+        public int ActivityId { get; set; }
 
         /// <summary>
         /// Вправа яку виконував.
         /// </summary>
-        public Activity Activity { get; }
+        public virtual Activity Activity { get; set; }
+
+        public int UserId { get; set; }
 
         /// <summary>
         /// Користувач який займався розминкою.
         /// </summary>
-        public User User { get; }
+        public virtual User User { get; set; }
         #endregion
+         
+        public Exercise() { }
 
         public Exercise(DateTime start, DateTime finish, Activity activity, User user)
         {
+             
             //TODO: Провiрка
             Start = start;
             Finish = finish;

@@ -7,8 +7,6 @@ namespace CodeBlogFitness.BL.Controller
 {
     public class ExerciseController : ControllerBase
     {
-        private const string EXERCISE_FILE_NAME = "exercise.dat";
-        private const string ACTIVITY_FILE_NAME = "activities.dat";
         private readonly User user;
         public List<Exercise> Exercises { get; }
         public List<Activity> Activities { get; }
@@ -35,7 +33,7 @@ namespace CodeBlogFitness.BL.Controller
                 var exercise = new Exercise(begin, end, activity, user);
                 Exercises.Add(exercise);
 
-                
+
 
             }
             else
@@ -43,7 +41,7 @@ namespace CodeBlogFitness.BL.Controller
                 var exercise = new Exercise(begin, end, act, user);
                 Exercises.Add(exercise);
 
-                
+
             }
 
             Save();
@@ -55,7 +53,7 @@ namespace CodeBlogFitness.BL.Controller
         /// <returns>Список вправ</returns>
         private List<Activity> GetAllActivities()
         {
-            return Load<List<Activity>>(ACTIVITY_FILE_NAME) ?? new List<Activity>();
+            return Load<Activity>() ?? new List<Activity>();
         }
 
         /// <summary>
@@ -64,7 +62,7 @@ namespace CodeBlogFitness.BL.Controller
         /// <returns>Список розминок.</returns>
         private List<Exercise> GetAllExercises()
         {
-           return Load<List<Exercise>>(EXERCISE_FILE_NAME) ?? new List<Exercise>();
+            return Load<Exercise>() ?? new List<Exercise>();
         }
 
         /// <summary>
@@ -72,8 +70,8 @@ namespace CodeBlogFitness.BL.Controller
         /// </summary>
         private void Save()
         {
-            Save(EXERCISE_FILE_NAME,Exercises);
-            Save(ACTIVITY_FILE_NAME, Activities);
+            Save(Activities);
+            Save(Exercises);
         }
     }
 }

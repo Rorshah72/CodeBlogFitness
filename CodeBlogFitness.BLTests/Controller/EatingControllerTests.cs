@@ -1,8 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CodeBlogFitness.BL.Controller;
+﻿using CodeBlogFitness.BL.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-
-using CodeBlogFitness.BL.Model;
 using System.Linq;
 
 namespace CodeBlogFitness.BL.Controller.Tests
@@ -19,7 +17,7 @@ namespace CodeBlogFitness.BL.Controller.Tests
             var rnd = new Random();
             var userController = new UserController(userName);
             var eatingControler = new EatingController(userController.CurrentUser);
-            var food = new Food(foodName, rnd.Next(50, 500 ), rnd.Next(50, 500), rnd.Next(50, 500), rnd.Next(50, 500));
+            var food = new Food(foodName, rnd.Next(50, 500), rnd.Next(50, 500), rnd.Next(50, 500), rnd.Next(50, 500));
 
             //Act
             eatingControler.Add(food, 100);

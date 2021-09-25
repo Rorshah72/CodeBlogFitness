@@ -6,36 +6,40 @@ namespace CodeBlogFitness.BL.Model
     [Serializable]
     public class Food
     {
-        #region
+        #region Властивості
+        public int Id { get; set; }
+
         /// <summary>
         /// Назва продукту.
         /// </summary>
-        public string Name{ get; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Бiлки за  грам продукту.
         /// </summary>
-        public double Proteins  { get; }
+        public double Proteins { get; set; }
 
         /// <summary>
         /// Жири за  грам продукту.
         /// </summary>
-        public double Fats { get; }
+        public double Fats { get; set; }
 
         /// <summary>
         /// Вуглеводи за  грам продукту.
         /// </summary>
-        public double Carbohydrates { get; }
-        
+        public double Carbohydrates { get; set; }
+
 
         /// <summary>
         /// Калорiї за  грам продукта .
         /// </summary>
-        public double Callories { get; }
+        public double Callories { get; set; }
 
         #endregion
 
-        public Food(string name): this(name, 0, 0, 0, 0){ }
+        public Food() { }
+
+        public Food(string name) : this(name, 0, 0, 0, 0) { }
 
         /// <summary>
         /// Добавлення продукту до каталогу.
@@ -50,7 +54,7 @@ namespace CodeBlogFitness.BL.Model
             //TODO : провiрка
             Name = name;
             Proteins = proteins / 100.0;
-            Fats = fats /100.0;
+            Fats = fats / 100.0;
             Carbohydrates = carbohydrates / 100.0;
             Callories = callories / 100.0;
         }

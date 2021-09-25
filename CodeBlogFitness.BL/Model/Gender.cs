@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace CodeBlogFitness.BL.Model
 {
@@ -10,10 +9,15 @@ namespace CodeBlogFitness.BL.Model
     /// </summary>
     public class Gender
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Назва.
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
+
+        public Gender() { }
+
         /// <summary>
         /// Створити нову стать.
         /// </summary>

@@ -11,20 +11,32 @@ namespace CodeBlogFitness.BL.Model
     /// </summary>
     public class Eating
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Час вживання їжi.
         /// </summary>
-        public DateTime Moment { get; }
+        public DateTime Moment { get; set; }
 
         /// <summary>
         /// Список продуктiв.
         /// </summary>
-        public Dictionary<Food, double > Foods { get; }
+        public Dictionary<Food, double> Foods { get; set; }
+
+        /// <summary>
+        /// Id користувача.
+        /// </summary>
+        public int UserId { get; set; }
 
         /// <summary>
         /// Користувач який вживає їжу.
         /// </summary>
-        public User User { get; }
+        public virtual User User { get; set; }
+
+        /// <summary>
+        /// Пустий конструктор.
+        /// </summary>
+        public Eating() { }
 
         /// <summary>
         /// Прийом їди.
@@ -32,7 +44,7 @@ namespace CodeBlogFitness.BL.Model
         /// <param name="user">Користувач який прийня їду.</param>
         public Eating(User user)
         {
-            User = user ?? throw new ArgumentNullException("Користувач не може бути пустим.",  nameof(user));
+            User = user ?? throw new ArgumentNullException("Користувач не може бути пустим.", nameof(user));
             Moment = DateTime.UtcNow;
             Foods = new Dictionary<Food, double>();
         }
@@ -43,14 +55,14 @@ namespace CodeBlogFitness.BL.Model
         /// <param name="food">Продукт.</param>
         /// <param name="weight">Вага продукту.</param>
         public void Add(Food food, double weight)
-        {            
-           var product =  Foods.Keys.FirstOrDefault(f => f.Name.Equals(food.Name));
+        {
+            var product = Foods.Keys.FirstOrDefault(f => f.Name.Equals(food.Name));
 
-            if(product == null)
+            if (product == null)
             {
                 Foods.Add(food, weight);
             }
-            else 
+            else
             {
                 Foods[product] += weight;
             }

@@ -10,10 +10,9 @@ namespace CodeBlogFitness.BL.Controller
     /// <summary>
     /// Контролер користувача.
     /// </summary>
-    public class UserController: ControllerBase
+    public class UserController : ControllerBase
     {
-        private const string USERS_FILE_NAME = "users.dat";
-
+       
         /// <summary>
         /// Список користовачiв додатку.
         /// </summary>
@@ -39,19 +38,19 @@ namespace CodeBlogFitness.BL.Controller
             {
                 throw new ArgumentNullException("Iмя користувача не може бути пустим. ", nameof(userName));
             }
-
-            Users =  GetUsersData();
+            
+             Users = GetUsersData();
 
             CurrentUser = Users.SingleOrDefault(u => u.Name == userName);
 
-            if(CurrentUser == null)
+            if (CurrentUser == null)
             {
                 CurrentUser = new User(userName);
                 Users.Add(CurrentUser);
                 IsNewUser = true;
                 Save();
             }
-           
+
         }
 
         /// <summary>
@@ -60,9 +59,7 @@ namespace CodeBlogFitness.BL.Controller
         /// <returns>Список користувасiв. </returns>
         private List<User> GetUsersData()
         {
-
-           return Load<List<User>>(USERS_FILE_NAME) ?? new List<User>();                               
-            
+            return Load<User>() ?? new List<User>();
         }
 
 
@@ -91,11 +88,10 @@ namespace CodeBlogFitness.BL.Controller
         /// </summary>
         public void Save()
         {
-            Save(USERS_FILE_NAME, Users);
-                        
+            Save(Users);
         }
 
 
-        
+
     }
 }

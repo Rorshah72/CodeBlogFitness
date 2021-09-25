@@ -10,10 +10,12 @@ namespace CodeBlogFitness.BL.Model
     public class User
     {
         #region Властивостi.
+        public int Id { get; set; }
+
         /// <summary>
         /// iмя.
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Стать.
@@ -23,7 +25,7 @@ namespace CodeBlogFitness.BL.Model
         /// <summary>
         /// Дата народження.
         /// </summary>
-        public DateTime BirthDate { get; set; }
+        public DateTime BirthDate { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Вага.
@@ -38,8 +40,10 @@ namespace CodeBlogFitness.BL.Model
         /// <summary>
         /// Вiк.
         /// </summary>
-        public int Age { get { return DateTime.Now.Year - BirthDate.Year; } }
+        public int Age {  get { return DateTime.Now.Year - BirthDate.Year; } }
         #endregion
+
+        public User() { }
 
         /// <summary>
         /// Створити нового користувача.
@@ -49,10 +53,10 @@ namespace CodeBlogFitness.BL.Model
         /// <param name="birthDate"> Дата народження. </param>
         /// <param name="weight"> Вага. </param>
         /// <param name="height"> Рiст. </param>
-        public User( string name, 
-                     Gender gender, 
-                     DateTime birthDate, 
-                     double weight, 
+        public User(string name,
+                     Gender gender,
+                     DateTime birthDate,
+                     double weight,
                      double height)
         {
             #region Провiрка умов
@@ -61,7 +65,7 @@ namespace CodeBlogFitness.BL.Model
                 throw new ArgumentNullException("iмя  користувача не може бути пустим або нулем. ", nameof(name));
             }
 
-            if(gender == null)
+            if (gender == null)
             {
                 throw new ArgumentNullException("Стать не може бути нулем. ", nameof(gender));
             }
@@ -71,12 +75,12 @@ namespace CodeBlogFitness.BL.Model
                 throw new ArgumentException("Неможлива дата народження. ", nameof(birthDate));
             }
 
-            if(weight <= 0)
+            if (weight <= 0)
             {
-                throw new ArgumentException(" Вес не може бути меньшим або рiвним нулю.", nameof(weight) );
+                throw new ArgumentException(" Вес не може бути меньшим або рiвним нулю.", nameof(weight));
             }
 
-            if(height <= 0 )
+            if (height <= 0)
             {
                 throw new ArgumentException(" Рiст не може бути меньшим або рiвним нулю.", nameof(height));
             }

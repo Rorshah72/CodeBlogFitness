@@ -11,8 +11,7 @@ namespace CodeBlogFitness.BL.Controller
     /// </summary>
     public class EatingController : ControllerBase
     {
-        private const string FOODS_FILE_NAME = "foods.dat";
-        private const string EATINGS_FILE_NAME = "eatings.dat";
+     
 
         /// <summary>
         /// Авторизований користувач.
@@ -22,12 +21,12 @@ namespace CodeBlogFitness.BL.Controller
         /// <summary>
         /// Католог продуктiв.
         /// </summary>
-        public List<Food> Foods { get; }
+        public List<Food> Foods { get; set; }
 
         /// <summary>
         /// Журнал прийому їжi.
         /// </summary>
-        public Eating Eating { get; }
+        public Eating Eating { get; set; }
 
         /// <summary>
         /// Авторизацiя користувача.
@@ -37,7 +36,8 @@ namespace CodeBlogFitness.BL.Controller
         {
             this.user = user ?? throw new ArgumentNullException("Користувач не може бути пустим.", nameof(user));
             Foods = GetAllFoods();
-            Eating = GetEating();
+            
+           // Eating = GetEating();
         }
 
         /// <summary>
@@ -63,24 +63,23 @@ namespace CodeBlogFitness.BL.Controller
 
 
         }
-               
-        /// <summary>
+
+     /*   /// <summary>
         /// Получення журналу прийому їжi.
         /// </summary>
         /// <returns>журнал прийому їжi.</returns>
         private Eating GetEating()
         {
-            return Load<Eating>(EATINGS_FILE_NAME) ?? new Eating(user);
+            return Load<Eating>() ?? new List<Eating>();
         }
-
+       */
         /// <summary>
         /// Получення каталогу продуктiв.
         /// </summary>
         /// <returns>Каталог продуктiв</returns>
         private List<Food> GetAllFoods()
         {
-            return Load<List<Food>>(FOODS_FILE_NAME) ?? new List<Food>();
-
+            return Load<Food>() ?? new List<Food>();
         }
 
         /// <summary>
@@ -88,8 +87,8 @@ namespace CodeBlogFitness.BL.Controller
         /// </summary>
         private void Save()
         {
-            Save(FOODS_FILE_NAME, Foods);
-            Save(EATINGS_FILE_NAME, Eating);
+            Save(Foods);
+            
         }
     }
 }

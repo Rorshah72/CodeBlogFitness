@@ -8,7 +8,7 @@ namespace CodeBlogFitness.CMD
 {
     class Program
     {
-        
+
 
         static void Main(string[] args)
         {
@@ -28,13 +28,13 @@ namespace CodeBlogFitness.CMD
                 var gender = Console.ReadLine();
                 var birthDate = ParseDateTime("народження (ДД.ММ.РРРР): ");
                 var weight = ParseDouble("вага");
-                var height = ParseDouble("рiст");               
+                var height = ParseDouble("рiст");
 
                 userController.SetNewUserData(gender, birthDate, weight, height);
             }
 
-            Console.WriteLine(userController.CurrentUser);            
-            
+            Console.WriteLine(userController.CurrentUser);
+
 
             while (true)
             {
@@ -61,11 +61,11 @@ namespace CodeBlogFitness.CMD
                     case ConsoleKey.A:
                         var act = EnterExercise();
                         exerciseController.Add(act.Activity, act.Begin, act.End);
-                        
+
                         foreach (var item in exerciseController.Exercises)
                         {
                             // Console.WriteLine(item);
-                            Console.WriteLine($"\t {item.Activity} розминка тривала - з {item.Start.ToShortTimeString()}  по  {item.Finish.ToShortDateString()}");
+                            Console.WriteLine($"\t {item.Activity} розминка тривала - з {item.Start.ToShortTimeString()}  по  {item.Finish.ToShortTimeString()}");
 
                         }
 
@@ -74,30 +74,30 @@ namespace CodeBlogFitness.CMD
                         Environment.Exit(0);
                         break;
                     default:
-                        
+
                         break;
                 }
-                
+
                 Console.ReadLine();
             }
-           
 
-            
+
+
 
         }
 
-       
+
         private static (Activity Activity, DateTime Begin, DateTime End) EnterExercise()
         {
             Console.Write("Виберiть назву вправи: ");
             var name = Console.ReadLine();
             var energy = ParseDouble("Розхiд калорiй на хвилину пiд час розминки: ");
             var activity = new Activity(name, energy);
-            
+
             var begin = ParseDateTime("початку розмини: ");
             var end = ParseDateTime("кiнця розминки: ");
 
-            return (Activity: activity, Begin: begin, End: end );
+            return (Activity: activity, Begin: begin, End: end);
         }
 
         private static (Food Food, double Weight) EnterEating()
@@ -108,11 +108,11 @@ namespace CodeBlogFitness.CMD
             var fats = ParseDouble("kiлькiсть жирiв на сто грам");
             var carbohydrates = ParseDouble("kiлькiсть вуглеводiв на сто грам");
             var callories = ParseDouble("kiлькiсть калорiй на сто грам");
-            
-            var product = new Food(food,proteins,fats,carbohydrates,callories);
+
+            var product = new Food(food, proteins, fats, carbohydrates, callories);
             var weight = ParseDouble("Вагу порцiї в грамах: ");
 
-            return (Food: product,Weight: weight);
+            return (Food: product, Weight: weight);
         }
 
         private static DateTime ParseDateTime(string name)
